@@ -2,18 +2,22 @@
 {
     internal class Program
     {
-        int max_lines = 3;
+        public const int max_lines = 3;
+        public const int min_bet = 1;
         static void Main(string[] args)
         {
-            depositAmount(3);
+            Console.WriteLine("Enter the number of lines to bet on ");
+            Console.WriteLine(getnumberoflines(int.Parse(Console.ReadLine())));
+            Console.WriteLine("What amount would like to deposit ");
+            Console.WriteLine(depositAmount(int.Parse(Console.ReadLine())));
+            Console.WriteLine("what would you like to bet on each line?");
+            Console.WriteLine(getBet(int.Parse(Console.ReadLine())));
         }
 
         static int depositAmount(int input)
         {
             while (true)
             {
-                Console.WriteLine("What amount would like to deposit ");
-                input = int.Parse(Console.ReadLine());
                 if (input > 0)
                 {
                     break; 
@@ -28,18 +32,33 @@
         {
             while (true)
             {
-                Console.WriteLine("What amount would like to deposit ");
-                lines = int.Parse(Console.ReadLine());
-                if (lines > 0)
+                if (lines > 0 && lines < 4)
                 {
                     break;
                 }
                 else
                 {
-                    Console.WriteLine("Amount must be greater than 0 ");
+                    Console.WriteLine("Enter valid number of lines.");
                 }
             }
             return lines;
+        }
+        static int getBet(int bet)
+        {
+            int max_bet = 100;
+            int min_bet = 1;
+            while (true)
+            {
+                if (bet >= min_bet && bet <= max_bet)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine($"The amount to bet must be between {max_bet} and {min_bet}");
+                }
+            }
+            return bet;
         }
     }
 }
