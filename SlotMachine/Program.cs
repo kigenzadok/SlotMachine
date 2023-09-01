@@ -1,4 +1,6 @@
-﻿namespace SlotMachine
+﻿using System.Diagnostics;
+
+namespace SlotMachine
 {
     internal class Program
     {
@@ -7,9 +9,11 @@
         static void Main(string[] args)
         {
             Console.WriteLine("Enter the number of lines to bet on ");
-            Console.WriteLine(getnumberoflines(int.Parse(Console.ReadLine())));
+            int bet = int.Parse(Console.ReadLine());
             Console.WriteLine("What amount would like to deposit ");
-            Console.WriteLine(depositAmount(int.Parse(Console.ReadLine())));
+            int deposit  = depositAmount(int.Parse(Console.ReadLine()));
+            double stake = bet * deposit;
+            Console.WriteLine(stake);
             Console.WriteLine("what would you like to bet on each line?");
             Console.WriteLine(getBet(int.Parse(Console.ReadLine())));
         }
