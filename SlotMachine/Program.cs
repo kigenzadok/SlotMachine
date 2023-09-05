@@ -9,13 +9,17 @@ namespace SlotMachine
         static void Main(string[] args)
         {
             Console.WriteLine("Enter the number of lines to bet on ");
-            Console.WriteLine(getnumberoflines(int.Parse(Console.ReadLine())));
+//<<<<<<< HEAD
+           int bet = int.Parse(Console.ReadLine());
+//=======
+           // int bet = int.Parse(Console.ReadLine());
+//>>>>>>> 5907a1f91423c511fa423b22965033c556ea8847
             Console.WriteLine("What amount would like to deposit ");
             int deposit  = depositAmount(int.Parse(Console.ReadLine()));
             double stake = bet * deposit;
             Console.WriteLine(stake);
             Console.WriteLine("what would you like to bet on each line?");
-           int stake = getBet(int.Parse(Console.ReadLine()));
+           //int stake = getBet(int.Parse(Console.ReadLine()));
             Console.WriteLine(stake * bet);
         }
 
@@ -65,5 +69,12 @@ namespace SlotMachine
             }
             return bet;
         }
+
+        static void spin() 
+        {
+            Console.WriteLine();
+                
+        }
+
     }
 }
